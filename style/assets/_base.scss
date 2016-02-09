@@ -1,0 +1,28 @@
+html,body{
+
+    @extend %font-size;
+    
+    font-family:$base-font;
+    color:$base-color;
+    font-weight: $base-font-weight;
+    box-sizing:border-box;
+    text-rendering: geometricPrecision;
+    backface-visibility: hidden;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+    width:100%;
+    overflow-x: hidden;
+
+    *{
+        box-sizing:inherit;
+        backface-visibility: inherit;
+    }
+
+}
+
+::selection {
+        // background: #333;
+    }
+::-moz-selection {
+        // background: #333;
+    }

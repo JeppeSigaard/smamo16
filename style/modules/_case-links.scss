@@ -1,0 +1,51 @@
+.case-links{
+    padding: 7.5px;
+    background: $color-light;
+    font-size: 0;
+    
+    .case-link{
+        @extend %font-size;
+        border: 7.5px solid $color-light;
+        display: inline-block;
+        verrtical-align: top;
+        width:50%;
+        padding-bottom: 30%;
+        position: relative;
+        background-size: 0px;
+        background-color: $color-dark-green;
+        background-position: -10000px;
+        transition: background-size 400ms;
+        overflow: hidden;
+        
+        &:before{
+            content: '';
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            position:absolute;
+            background: inherit;
+            background-size: 100% auto;
+            background-position: center;
+            transition: transform 240ms;
+        }
+        
+        &:hover:before{
+            transform: rotate(2deg) scale(1.03);
+        }
+        
+        
+        @media only screen and(min-width:1600px){
+            
+            padding-bottom: 0;
+            height: 480px;
+        }
+    }
+    h3{
+        @extend %light-marker;
+        @include center(true,true);
+        font-size: 150%;
+        font-weight: 300;
+        white-space: nowrap;
+    }
+}

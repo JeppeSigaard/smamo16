@@ -1,0 +1,27 @@
+$logo-height: 70px;
+$logo-width: 120px;
+
+.logo-row{
+    background: white;
+    height: $logo-height + 40px;
+    
+    li{
+        display: inline-block;
+        border-left: 2px solid $color-dark;
+        height: $logo-height;
+        margin: 20px 0px;
+        width: $logo-width;
+        vertical-align: top;
+        
+    }
+    
+    .prefix{
+        border-left: none;
+        text-transform: uppercase;
+        color: $color-green;
+        font-size: 125%;
+        padding: 10px 15px;
+        
+    }
+    
+}

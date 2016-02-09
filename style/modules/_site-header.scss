@@ -1,0 +1,105 @@
+.home .site-header{
+    position:absolute;
+    font-size: 0;
+    z-index: 10;
+    
+    .inner{
+        
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+    }
+    
+    .site-title,
+    .hamburger{
+        
+        position: absolute;
+        width: 75px;
+        height: 70px;
+        top: 50px;
+        background: #333;
+    }
+    
+    .site-title{
+        
+        svg{
+            fill:white;
+            width:40px;
+            height:40px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+    }
+    
+    .hamburger{
+        right:0;
+        
+        svg{
+            fill: white;
+            width:33px;
+            height:33px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+    }
+    
+}
+
+$header-height: 60px;
+body:not(.home) .site-header{
+    
+    position:relative;
+    height: $header-height + 15px;
+    background: $color-light;
+    
+    .inner{
+        position: fixed;
+        z-index: 100;
+        background: $color-dark;
+        height: $header-height;
+        left: 0;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+        font-size: 0;
+    }
+    
+    
+    .site-title,
+    .hamburger{
+        
+        display: inline-block;
+        height: $header-height;
+        background: #333;
+        padding: 15px;
+        
+        svg{
+            
+            fill: white;
+            width: auto;
+            height:$header-height - 30px;
+            
+        }
+    }
+    
+    .hamburger{
+        float: right;
+    }
+    
+    .site-description{
+        font-size: 14px;
+        color: white;
+        height: $header-height;
+        line-height: $header-height;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 10px;
+        font-style: italic;
+        
+    }   
+}
