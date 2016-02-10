@@ -30,12 +30,14 @@ get_functions_part(array(
     'tema',
     'cases',
     'team',
+    'log',
     
 ),'post-types');
 
 // meta-box
 get_functions_part(array(
     'team',
+    'slack-id',
     
 ),'meta-box');
 
