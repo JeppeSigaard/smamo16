@@ -3,6 +3,7 @@
 // Hent hjælpefunktioner
 require_once get_template_directory() . '/functions/functions.part.php';
 require_once get_template_directory() . '/functions/functions.getsvg.php';
+require_once get_template_directory() . '/functions/functions.thesubtitle.php';
 
 // Hent functions parts 
 get_functions_part(array(

@@ -1,0 +1,80 @@
+.newsletter-puzzle{
+    font-size: 0;
+    background-color: $color-dark-green;
+    height: 550px;
+    
+    .inner{
+        
+        
+    }
+    
+    .puzzle-description{
+        @extend %font-size;
+        display: inline-block;
+        vertical-align: top;
+        width:50%;
+        color: white;
+        
+        padding: 70px 0px 0px 80px;
+        
+        h3{
+            font-size:400%;
+            font-weight: 700;
+        }
+        
+        .subtitle{
+            display: inline-block;
+            font-size: 150%;
+            @extend %light-marker;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        
+    }
+    
+    
+    .puzzle-stage{
+        display: inline-block;
+        vertical-align: top;
+        height: 550px;
+        width: 50%;
+        
+        .puzzle-result{
+            fill: rgba(0,0,0,.4);
+            
+            path{
+                transition:fill 200ms;
+            }
+            
+            .matched {
+                fill: lighten($color-green,20);
+            }
+        }
+        
+    
+        .puzzle-piece {
+            fill:lighten($color-green,10);
+            
+            path{
+                transform-origin: center;
+                transform: scale(.8);
+                transition: transform 120ms, fill 200ms;
+                cursor: grab;
+            }
+            
+            &:hover path,
+            &.matched path,
+            &.moved path{
+                transform: scale(1);
+                
+            }
+            
+            &.matched path{
+                fill: lighten($color-green,20);
+            }
+        }
+        
+    }
+    
+    
+}

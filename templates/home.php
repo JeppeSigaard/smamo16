@@ -3,3 +3,4 @@
 <?php get_template_part('template-parts/common/case-links'); ?>
 <?php get_template_part('template-parts/common/logo-row'); ?>
 <?php get_template_part('template-parts/home/newsletter-puzzle'); ?>
+<?php get_template_part('template-parts/home/home-article'); ?>
