@@ -16,7 +16,7 @@ function smamo_add_team() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => 22,
-		'supports'           => array( 'title', 'thumbnail','editor','author'),
+		'supports'           => array( 'title', 'thumbnail','editor','author','excerpt'),
         'labels'             => array(
             
             'name'               => _x( 'Team', 'post type general name', 'smamo' ),
