@@ -1,0 +1,10 @@
+.content-wrap{
+    z-index: 2;
+    position: relative;
+    box-shadow: 2px 4px 5px 1px rgba(black,.2);
+}
+
+.home .content-wrap{
+    box-shadow: none;
+}
+

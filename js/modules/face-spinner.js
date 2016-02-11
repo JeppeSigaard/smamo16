@@ -54,9 +54,9 @@ if($('.contact-face-spinner').length){
     function FSfetcMatchInfo(id){
         
         var container = $('.contact-spinner .contact-info');
-        container.find('.info-title').html(faceSpinnerData[id].title);
-        container.find('.info-email').attr('href','mailto:'+faceSpinnerData[id].email).html(faceSpinnerData[id].email);
-        container.find('.info-phone').attr('href','tel:'+faceSpinnerData[id].phone).html(faceSpinnerData[id].phone);
+        container.find('.info-title').html(' '+faceSpinnerData[id].title).typewriter({speed:30});
+        container.find('.info-email').attr('href','mailto:'+faceSpinnerData[id].email).html(' '+faceSpinnerData[id].email);
+        container.find('.info-phone').attr('href','tel:'+faceSpinnerData[id].phone).html(' '+faceSpinnerData[id].phone);
     }
     
     

@@ -5,14 +5,15 @@
     
     .inner{
         
-        position:fixed;
+        position:absolute;
         top:0;
         left:0;
         right:0;
     }
     
     .site-title,
-    .hamburger{
+    .hamburger,
+    .site-description{
         
         position: absolute;
         width: 75px;
@@ -34,8 +35,21 @@
         }
     }
     
+    .site-description{
+        width: auto;
+        line-height: 70px;
+        font-size: 16px;
+        white-space: nowrap;
+        background: transparent;
+        left: 100px;
+        color: white;
+        font-style: italic;
+        padding-right: 2px;
+    }
+    
     .hamburger{
         right:0;
+        position: fixed;
         
         svg{
             fill: white;

@@ -1,21 +1,51 @@
 .newsletter-puzzle{
+    position: relative;
+    overflow: hidden;
     font-size: 0;
     background-color: $color-dark-green;
-    height: 550px;
+    height: 650px;
     
     .inner{
         
         
     }
     
+    .puzzle-trigger{
+        position:absolute;
+        bottom: 0;
+        height: 20px;
+        width: 20px;
+    }
+    
+    .puzzle-counter{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 110px;
+        font-weight: 900;
+        color: white;
+        transition: transform 1s, left 1s, font-size 1s, top 1s;
+        transition-delay: 1s;
+        opacity: 1;
+    }
+    
+    &.counting .puzzle-counter{
+        left: 80px;
+        font-size: 72px;
+        transform: translate(0,-50%);
+    }
+    
+    
     .puzzle-description{
         @extend %font-size;
         display: inline-block;
         vertical-align: top;
         width:50%;
+        transition: opacity 1s;
         color: white;
         
-        padding: 70px 0px 0px 80px;
+        padding: 90px 0px 0px 80px;
         
         h3{
             font-size:400%;
@@ -27,17 +57,109 @@
             font-size: 150%;
             @extend %light-marker;
             font-weight: 300;
-            margin-top: 20px;
+            margin-top: 30px;
+        }
+        
+        .puzzle-lock{
+            
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            bottom: 130px;
+            left: 80px;
+            
+            svg{
+                
+                fill: white;
+            }
+        }
+        
+        .puzzle-times{
+            position: absolute;
+            bottom: 130px;
+            left: 140px;
+            
+            span{
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
         }
         
     }
+
     
+    .puzzle-form{
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 200ms, top 600ms;
+        transition-delay: 300ms;
+        position: absolute;
+        top: 120%;
+        width: 380px;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 18px;
+        transform-style: preserve-3d;
+        margin-top: 20px;
+        
+        .field{
+            background: white;
+            
+            input{
+                padding: 6px 10px;
+            }
+            
+            label{
+                background: white;
+                opacity:1!important;
+                padding-left: 10px;
+            }
+        }
+        
+        .center{
+            text-align: center;
+        }
+        
+        p{
+            color: white;
+        }
+        
+        a{
+            display: inline-block;
+            height: 38px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 38px;
+            margin-top: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 0px 30px;
+            box-sizing: content-box;
+            background-color: transparent;
+            transition: background-color 120ms;
+            
+            &:hover{
+                
+                background-color: rgba(white,.2);
+            }
+        }
+    }
     
     .puzzle-stage{
         display: inline-block;
+        position: relative;
         vertical-align: top;
+        transition: opacity 1s;
         height: 550px;
         width: 50%;
+        top: 35px;
+        
+        >svg{
+            display: block;
+            width: 500px;
+        }
         
         .puzzle-result{
             fill: rgba(0,0,0,.4);
@@ -64,7 +186,8 @@
             
             &:hover path,
             &.matched path,
-            &.moved path{
+            &.moved path,
+            &.blink path{
                 transform: scale(1);
                 
             }
@@ -76,5 +199,31 @@
         
     }
     
+    &.endscreen{
+        
+        .puzzle-stage,
+        .puzzle-description{
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
     
+    &.show-form{
+        
+        .puzzle-counter{
+            transition-delay: 0s;
+            top: 120px;
+            transform: translate(-50%,0);
+            font-size: 80px;
+        }
+        
+        .puzzle-form{
+            @extend %article-font-style;
+            pointer-events: all;
+            opacity: 1;
+            transform: translate(-50%,-50%);
+            top: 50%;
+        }
+        
+    }
 }

@@ -11,28 +11,12 @@ var checkSuccess = function(target){
 var formHandleResponse = function(response,form){
 
     form.removeClass('loading');
-
-    if(response.success){
-        if(!form.find('.form-success').length){
-            var $formSucces = $('<div class="form-success"></div>');
-            form.html($formSucces);
-        }
-
-        form.find('.form.error').remove();
-        form.find('.form-success').html(response.success);
-        form.addClass('success');
-    }
-
-    if(response.error){
-        if(!form.find('.form-error').length){
-            var $formError = $('<div class="form-error"></div>');
-            form.append($formError);
-        }
-
-        form.find('.form-error').html(response.error);
-        form.addClass('error');
-
-    }
+    
+    $.event.trigger({
+        type : "formReturn",
+        response : response,
+        target : form,
+    });
 
 }
 
@@ -46,7 +30,7 @@ var validateForm = function(form){
             ready = false;
         }
 
-		if($(this).is(':required') && $(this).val() === ''){
+		if($(this).is(':required') || $(this).hasClass('required') && $(this).val() === ''){
 			$(this).removeClass('success').addClass('error');
 			ready = false;
 		}
@@ -119,6 +103,14 @@ var formJsInit = function(){
                 target.val(value);
 
             }
+            
+            if(target.is('input[data-restrict="true"]')){
+                
+                var value = target.val().replace(/[^0-9a-zA-ZÆØÅæøå ]/g, '');
+
+                target.val(value);
+                
+            }
 
         },
 
@@ -138,14 +130,14 @@ var formJsInit = function(){
                     form.addClass('loading');
 
                     $.ajax({
-                                url : action,
-                                type : 'POST',
-                                data : formData,
-                                dataType : 'json',
-                                success : function(response){
-                                    formHandleResponse(response,form);
-                                },
-                            });
+                        url : action,
+                        type : 'POST',
+                        data : formData,
+                        dataType : 'json',
+                        success : function(response){
+                            formHandleResponse(response,form);
+                        },
+                    });
 
                 }
             }

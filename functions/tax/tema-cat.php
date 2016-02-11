@@ -23,18 +23,18 @@ function register_page_cat() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'tema' ),
+		'rewrite'           => array( 'slug' => 'temaer' ),
 	);
 
-	register_taxonomy( 'page_cat', array( 'tema' ), $args );
+	register_taxonomy( 'tema_cat', array( 'tema' ), $args );
 
     if(class_exists('Tax_Meta_Class')){
 
-        $page_cat_img =  new Tax_Meta_Class(
+        $tema_cat_img =  new Tax_Meta_Class(
             array(
                 'id' => 'page_cat_img_upload',          
                 'title' => 'Billede',         
-                'pages' => array('page_cat'),       
+                'pages' => array('tema_cat'),       
                 'context' => 'normal',           
                 'fields' => array(),
                 'local_images' => false,
@@ -42,8 +42,8 @@ function register_page_cat() {
             )
         );
         
-        $page_cat_img->addImage('page_cat_img',array('name'=> __('Kategoribillede','smamo')));
-        $page_cat_img->finish();
+        $tema_cat_img->addImage('tema_cat_img',array('name' => __('Kategoribillede','smamo')));
+        $tema_cat_img->finish();
     }
 }
 

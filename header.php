@@ -8,5 +8,4 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div class="wrap">
 <?php get_template_part('template-parts/header/site-header'); ?>

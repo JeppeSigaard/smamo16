@@ -1,0 +1,37 @@
+.home-article{
+    background-color: white;
+    padding: 70px;
+    min-height:600px;
+    
+    &:after{
+        display: block;
+        position: absolute;
+        bottom: -40px;
+        content: '';
+        background-color: white;
+        left: 0;
+        right: 0;
+        height: 80px;
+        transform: rotate(-2deg) translate3d(0,0,0);
+        transform-style: preserve-3d;
+        box-shadow: 0px 5px 5px 0px rgba(black,.2);
+        z-index:-1;
+    }
+    
+    header{
+        
+        .subtitle{
+            margin-bottom: 18px;
+            display: block;
+            font-size: 18px;
+            font-style: italic;
+        }
+        
+        h1{
+            font-size: 400%;
+            font-weight: 900;
+        }
+        
+    }
+}
+

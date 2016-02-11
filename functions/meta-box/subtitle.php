@@ -2,13 +2,13 @@
 
 add_filter( 'rwmb_meta_boxes', 'smamo_add_subtitle' );
 
-function smamo_add_subtitle(){
+function smamo_add_subtitle($mb){
 
 // Your boxes or requires here
     $mb[] = array(
       'id' => 'subtitle',
       'title' => __( 'Undertitel', 'rwmb' ),
-      'post_types' => array('post','page','tema','team','case'),
+      'post_types' => array('post','page','team','case'),
       'context' => 'normal',
       'priority' => 'default',
       'autosave' => true,

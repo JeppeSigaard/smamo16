@@ -3,7 +3,7 @@
 
 add_filter( 'rwmb_meta_boxes', 'smamo_add_slack_id' );
 
-function smamo_add_slack_id(){
+function smamo_add_slack_id($mb){
 
    $mb[] = array(
        'id' => 'slack_id',
@@ -20,11 +20,8 @@ function smamo_add_slack_id(){
                'type' => 'text',
                ),
        ),
-   );
-   
-
+    );
     return $mb;
-
 }
 
 

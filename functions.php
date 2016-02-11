@@ -22,6 +22,7 @@ get_functions_part(array(
 // Ajax
 get_functions_part(array(
     'json.post',
+    'puzzle-form',
     
 ),'ajax');
 
@@ -37,6 +38,7 @@ get_functions_part(array(
 // meta-box
 get_functions_part(array(
     'team',
+    'subtitle',
     'slack-id',
     
 ),'meta-box');

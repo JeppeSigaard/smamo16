@@ -2,7 +2,7 @@
 
 add_filter( 'rwmb_meta_boxes', 'smamo_add_team_fields' );
 
-function smamo_add_team_fields(){
+function smamo_add_team_fields($mb){
 
 $mb[] = array(
     'id' => 'oplysninger',

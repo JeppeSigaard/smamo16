@@ -1,0 +1,68 @@
+.page-content{
+    background: $color-light;
+    font-size: 0;
+    
+    main{
+        display: inline-block;
+        width: 50%;
+        background-color: $color-light-4;
+        @extend %font-size;
+        min-height: 600px;
+        
+        article{
+            position: relative;
+            @extend %article-font-style;
+            padding: 50px 20px 70px;
+            max-width: 680px;
+            margin: auto;
+        }
+        
+        .article-subtitle{
+            font-style: italic;
+            font-size: 110%;
+            color: lighten($base-color,10);
+            
+            a{
+                color:inherit;
+                text-decoration: none;
+            }
+        }
+        
+        .header-team-img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-size: cover;
+        }
+        
+        h1{
+            font-size: 180%;
+            font-weight: 700;
+            margin-bottom: 20px;
+            
+        }
+        
+        p{
+            margin-bottom: 1rem;
+        }
+    }
+    
+    aside{
+        @extend %font-size;
+        display: inline-block;
+        width: 25%;
+        vertical-align: top;
+    }
+    
+    .aside-left{
+        background-color: $color-light-3;
+         min-height: 500px;
+    }
+    
+    .aside-right{
+        background-color: lighten($color-green,30);
+         min-height: 300px;
+    }
+}

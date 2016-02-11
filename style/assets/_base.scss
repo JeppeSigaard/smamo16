@@ -12,12 +12,17 @@ html,body{
     line-height: 1;
     width:100%;
     overflow-x: hidden;
+    background-color: $color-green;
 
     *{
         box-sizing:inherit;
         backface-visibility: inherit;
     }
 
+    img{
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 ::selection {

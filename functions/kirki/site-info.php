@@ -20,6 +20,41 @@ if (class_exists('Kirki')){
         'default'  => '',
     ) );
     
+    Kirki::add_field( 'info_name', array(
+        'settings' => 'info_name',
+        'label'    => __( 'Navn', 'smamo' ),
+        'section'  => 'site_info',
+        'type'     => 'text',
+        'priority' => 10,
+        'default'  => '',
+    ) );
+    
+    Kirki::add_field( 'info_address', array(
+        'settings' => 'info_address',
+        'label'    => __( 'Adresse', 'smamo' ),
+        'section'  => 'site_info',
+        'type'     => 'text',
+        'priority' => 10,
+        'default'  => '',
+    ) );
+    
+    Kirki::add_field( 'info_post', array(
+        'settings' => 'info_post',
+        'label'    => __( 'Postnummer', 'smamo' ),
+        'section'  => 'site_info',
+        'type'     => 'text',
+        'priority' => 10,
+        'default'  => '',
+    ) );
+    
+    Kirki::add_field( 'info_by', array(
+        'settings' => 'info_by',
+        'label'    => __( 'By', 'smamo' ),
+        'section'  => 'site_info',
+        'type'     => 'text',
+        'priority' => 10,
+        'default'  => '',
+    ) );
     
     Kirki::add_field( 'info_email', array(
         'settings' => 'info_email',
