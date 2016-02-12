@@ -1,21 +1,26 @@
 <?php 
-$terms = get_terms('tema_cat',array('hide_empty' => false));
+$banner = new WP_Query(array(
+    'post_type' => 'page',
+    'posts_per_page' => -1,
+    'post_parent' => 0,
+));
+
 ?>
    
-<?php if (!empty($terms)) : ?>
+<?php if ($banner->have_posts()) : ?>
 <section class="hero-banner">
     <div class="inner">
-        <?php $i = 0; foreach($terms as $term) : $i++; ?>
-            <?php $term_img = get_tax_meta($term->term_id,'tema_cat_img',true);?>
-            <div class="hero-banner-item<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $term_img['url'] ?>">
-                <h3 class="hero-banner-item-title"><a href="<?php echo get_term_link($term->term_id,'tema_cat') ?>"><?php echo $term->name ?></a></h3>
+        <?php $i = 0; while ($banner->have_posts()) : $banner->the_post(); $i++; ?>
+            <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'hero-banner' );?>
+            <div class="hero-banner-item<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $image_url[0] ?>">
+                <h3 class="hero-banner-item-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
                 <ul class="hero-banner-pages">
-                    <?php $term_ps = get_posts(array('post_type' => 'tema', 'tema_cat' => $term->slug)); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
+                    <?php $term_ps = get_posts(array('post_type' => 'tema', 'post_parent' => get_the_ID())); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
                     <li><a href="<?php echo get_permalink($page->ID) ?>"><?php echo $page->post_title ?></a></li>
                     <?php endforeach; endif; ?>
                 </ul>
             </div>
-        <?php endforeach;?>
+        <?php endwhile; wp_reset_postdata(); ?>
         <div class="hero-banner-controls">
             <a href="#" class="icon nav-left"></a>
             <a href="#" class="icon nav-right"></a>
