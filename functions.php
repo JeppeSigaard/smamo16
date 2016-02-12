@@ -28,7 +28,6 @@ get_functions_part(array(
 
 // post types
 get_functions_part(array(
-    'tema',
     'cases',
     'team',
     'log',
@@ -40,12 +39,12 @@ get_functions_part(array(
     'team',
     'subtitle',
     'slack-id',
+    'front-page',
     
 ),'meta-box');
 
 // taxonomies
 get_functions_part(array(
-    'tema-cat',
     'case-type',
     
 ),'tax');

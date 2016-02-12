@@ -15,7 +15,7 @@ $banner = new WP_Query(array(
             <div class="hero-banner-item<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $image_url[0] ?>">
                 <h3 class="hero-banner-item-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
                 <ul class="hero-banner-pages">
-                    <?php $term_ps = get_posts(array('post_type' => 'tema', 'post_parent' => get_the_ID())); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
+                    <?php $term_ps = get_posts(array('post_type' => 'page', 'post_parent' => get_the_ID())); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
                     <li><a href="<?php echo get_permalink($page->ID) ?>"><?php echo $page->post_title ?></a></li>
                     <?php endforeach; endif; ?>
                 </ul>

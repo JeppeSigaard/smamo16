@@ -7,6 +7,7 @@
                 <div class="article-content">
                     <?php the_content(); ?>
                 </div>
+                <?php if('team' === get_post_type(get_the_ID())) { get_template_part('template-parts/team/log');} ?>
             </article>
         </main>
         <aside class="content-aside aside-left">

@@ -11,7 +11,7 @@ elseif(is_archive() || is_tax()){
     get_template_part('templates/archive');
 }
 
-elseif(is_single()){
+elseif(is_single() || is_page()){
     get_template_part('templates/single');
 }
 
