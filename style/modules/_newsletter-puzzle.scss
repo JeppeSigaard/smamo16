@@ -125,7 +125,7 @@
             color: white;
         }
         
-        a{
+        a.form-button{
             display: inline-block;
             height: 38px;
             color: white;
@@ -138,6 +138,8 @@
             padding: 0px 30px;
             box-sizing: content-box;
             background-color: transparent;
+            text-decoration: none;
+            color: white;
             transition: background-color 120ms;
             
             &:hover{

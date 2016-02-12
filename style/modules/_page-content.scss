@@ -1,10 +1,21 @@
 .page-content{
     background: $color-light;
     font-size: 0;
+    overflow: auto;
     
     main{
         display: inline-block;
-        width: 50%;
+        width: calc(100% - 280px);
+        float: left;
+        
+        @media only screen and(min-width:960px){
+            width: 75%;    
+        }
+        
+        @media only screen and(min-width:1280px){
+            width: 50%;    
+        }
+        
         background-color: $color-light-4;
         @extend %font-size;
         min-height: 600px;
@@ -52,17 +63,19 @@
     aside{
         @extend %font-size;
         display: inline-block;
-        width: 25%;
+        width: 280px;
+        @media only screen and(min-width:960px){
+            width: 25%;    
+        }
+        flat: right;
         vertical-align: top;
     }
     
     .aside-left{
         background-color: $color-light-3;
-         min-height: 500px;
     }
     
     .aside-right{
         background-color: lighten($color-green,30);
-         min-height: 300px;
     }
 }

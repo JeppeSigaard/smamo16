@@ -9,6 +9,7 @@ if($('.newsletter-puzzle').length){
         time : 0,
         started : false,
         timerStopped : false,
+        timerPaused : false,
         result : puzzle.group().addClass('puzzle-result'),
         pieces : {
             piece_1 : puzzle.nested().addClass('puzzle-piece piece-01'),
@@ -64,7 +65,7 @@ if($('.newsletter-puzzle').length){
         
         // Start timer
         setTimeout(function(){
-            
+            $counter.css('opacity',1);
             
              $.each(puzzleMonkey.pieces,function(index,value){
                 var i = $(value.node).index();
@@ -83,11 +84,14 @@ if($('.newsletter-puzzle').length){
             
             puzzleMonkey.timer = setInterval(function(){
                 if(puzzleMonkey.timerStopped === false){
-                    puzzleMonkey.time = ( Math.round(puzzleMonkey.time * 100 ) + 2 ) / 100;
+                    
+                    if(puzzleMonkey.timerPaused === false){
+                        puzzleMonkey.time = ( Math.round(puzzleMonkey.time * 100 ) + 2 ) / 100;
+                    }
+                    
                     puzzleMonkey.time = puzzleMonkey.time.toFixed(2);
                     if(puzzleMonkey.time < 10){puzzleMonkey.time = '0' + puzzleMonkey.time;}
-                    
-                    $counter.css('opacity',1).html(puzzleMonkey.time);
+                    $counter.html(puzzleMonkey.time);
                 }
                 else{
                     clearInterval(puzzleMonkey.timer);
@@ -253,6 +257,11 @@ if($('.newsletter-puzzle').length){
         if(puzzleMonkey.parent.find('.puzzle-trigger').is(':in-viewport') && puzzleMonkey.started === false){
             puzzleMonkey.start();
         }
+        
+        if(puzzleMonkey.parent.is(':in-viewport')){
+            puzzleMonkey.timerPaused = false;
+        }
+        else{puzzleMonkey.timerPaused = true;}
     });
     
     

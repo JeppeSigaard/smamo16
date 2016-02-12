@@ -7,14 +7,14 @@ function smamo_add_log() {
 	register_post_type( 'logbog', array(
 		
         'menu_icon' 		 => 'dashicons-format-status',
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
+		'public'             => false,
+		'publicly_queryable' => false,
+		'show_ui'            => false,
 		'show_in_menu'       => 'edit.php?post_type=team',
 		'query_var'          => true,
 		'rewrite'            => array( 'slug' => 'logbog' ),
 		'capability_type'    => 'post',
-		'has_archive'        => true,
+		'has_archive'        => false,
 		'hierarchical'       => false,
 		'menu_position'      => 22,
 		'supports'           => array( 'title', 'thumbnail','editor', 'author'),

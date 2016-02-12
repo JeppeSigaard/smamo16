@@ -1,0 +1,21 @@
+.side-menu,
+.side-sub-menu{
+    
+    a{
+        display: block;
+        padding: 25px;
+        color: $color-dark-green;
+        font-weight: 300;
+        transition: all 120ms;
+        line-height: 1.5;
+    }
+    
+}
+
+.side-menu .current-menu-item a,
+.side-menu li:hover a{
+    background: $color-green;
+    color: white;
+    font-weight: 400;
+
+}

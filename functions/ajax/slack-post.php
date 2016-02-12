@@ -50,6 +50,14 @@ if($text === 'ID'){
 }
 
 
+// frasorter tomme ting
+if($text === ''){
+    $response['text'] = '@'.$user_name.': Din log blev ikke tilføjet, da den er tom. HVis du gerne vil dele medieindhold, feks. et billede eller lignende del et link til et sted på internettet i stedet';
+    echo json_encode($response);
+    exit;  
+}
+
+
 $team_member = get_posts(array(
     'posts_per_page' => 1,
     'post_type' => 'team',
@@ -76,7 +84,7 @@ foreach($team_member as $tm){
     }
     
     $new_post = wp_insert_post(array(
-        'post_content'   => $text,
+        'post_content'   => make_clickable($text),
         'post_title'     => wp_trim_words($text, $num_words = 8, $more = ' ...'),
         'post_status'    => 'publish',
         'post_type'      => 'logbog',

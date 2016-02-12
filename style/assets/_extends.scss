@@ -12,6 +12,11 @@
 
 %article-font-style{
     line-height:$base-line-height;
+    
+    a{
+        text-decoration: underline;
+        color: $color-green;
+    }
 }
 
 %font-size{

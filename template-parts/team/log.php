@@ -10,7 +10,7 @@ if ($log->have_posts()):
 ?>
 
 
-<div class="team-log">
+<div id="log" class="team-log" data-log-count="<?php echo sizeof($log->posts) ?>">
     <div class="inner">
         <header class="log-header">
             <h3><?php echo $author_title ?>'s log</h3>

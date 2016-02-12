@@ -11,10 +11,15 @@
             </article>
         </main>
         <aside class="content-aside aside-left">
-            <div class="inner"></div>
+            <div class="inner">
+                <?php if('team' === get_post_type(get_the_ID())) { get_template_part('template-parts/aside/team-meta');} ?>
+                <?php if('page' === get_post_type(get_the_ID())) { get_template_part('template-parts/aside/sub-menu');} ?>
+            </div>
         </aside>
         <aside class="content-aside aside-right">
-            <div class="inner"></div>
+            <div class="inner">
+                <?php get_template_part('template-parts/aside/menu'); ?>
+            </div>
         </aside>
     </div>
 </section>
