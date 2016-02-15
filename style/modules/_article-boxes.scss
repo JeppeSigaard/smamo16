@@ -1,0 +1,105 @@
+
+.article-boxes{
+    font-size: 0;
+
+    margin: 70px -10px 0px ; 
+
+    .article-box{
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        padding: 10px;
+        width: calc(100% / 3);
+
+
+        &:before{
+            display: block;
+            position: absolute;
+            content: '';
+            background-color: $color-green;
+            color: white;
+            width: 50px;
+            height: 50px;
+            top: 10px;
+            right: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+        }
+        
+        &.case:before{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+
+        &:first-child:before{
+            content: '1';
+        }
+
+        &:nth-child(2):before,
+        &.label-a:before{
+            content: 'A';
+        }
+
+        &:nth-child(3):before,
+        &.label-b:before{
+            content: 'B';
+        }
+        
+        &.label-0:before{
+            display: none;
+        }
+
+        &:hover .home-read-more svg{
+            fill: $color-green;
+        }
+
+        .inner{
+            @extend %font-size;
+            @extend %article-font-style;
+            background: $color-light-3;
+            padding: 20px;
+            height: 380px;
+        }
+        
+        &.case .inner{
+            height: auto;
+        }
+        
+    }
+
+    .box-title{
+        font-size: 200%;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+    
+    .case .box-title{
+        font-size: 175%;
+        font-weight: 700;
+        color: $color-green;
+    }
+    
+    .box-img{
+       
+        text-align: center;
+        padding: 30px 20px 20px;
+        margin: 0px -20px 20px;
+        min-height: 230px;
+        border-bottom: 1px solid $color-dark-2;
+        
+        img{
+            max-height: 200px;
+            max-width: 100%;
+            display: inline-block;
+        }
+    }
+
+    .home-read-more{
+        position: absolute;
+        @include center(true,false);
+        bottom: 40px;
+    }
+}

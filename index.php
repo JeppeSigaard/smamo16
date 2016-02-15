@@ -2,6 +2,7 @@
 
 get_header();
 
+get_template_part('template-parts/header/site-menu');
 get_template_part('template-parts/common/content','before');
 
 

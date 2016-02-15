@@ -40,11 +40,13 @@ get_functions_part(array(
     'subtitle',
     'slack-id',
     'front-page',
+    'case-assets',
     
 ),'meta-box');
 
 // taxonomies
 get_functions_part(array(
     'case-type',
+    'case-stikord',
     
 ),'tax');

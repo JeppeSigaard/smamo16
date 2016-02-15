@@ -1,4 +1,5 @@
 var ajaxURL = $('meta[name="ajax-url"]').attr('content');
+$('meta[name=ajax-url]').remove();
 
 // @koala-append 'assets/svg.js';
 // @koala-append 'assets/svg.draggy.js';
@@ -20,3 +21,5 @@ var ajaxURL = $('meta[name="ajax-url"]').attr('content');
 // @koala-append 'modules/hero-banner.js';
 // @koala-append 'modules/face-spinner.js';
 // @koala-append 'modules/newsletter-puzzle.js';
+// @koala-append 'modules/menu-toggle.js';
+// @koala-append 'modules/booking-form.js';

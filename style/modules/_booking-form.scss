@@ -1,0 +1,47 @@
+
+.show-form .booking-form{
+    display: block;
+}
+.booking-form{
+    display: none;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba($color-light,.98);
+    
+    .inner{
+        @include center(true,true);
+        width: 100%;
+    }
+    
+    form{
+        position: relative;
+        top: -50px;
+        max-width: 540px;
+        margin: auto;
+        font-size: 125%;
+        padding: 20px;
+        transform-style: preserve-3d;
+        
+        label.stayup, input[type="text"]:focus+label, input[type="email"]:focus+label, input[type="tel"]:focus+label, input[type="password"]:focus+label, input[type="number"]:focus+label, textarea:focus+label{
+            top: -20px;
+        }
+    }
+    
+    .preheader{
+        font-size: 125%;
+        display: block;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    
+    h3{
+        font-size:250%;
+        font-weight: 900;
+        margin-bottom: 1rem;
+    }
+    
+}

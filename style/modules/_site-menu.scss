@@ -1,0 +1,38 @@
+.site-menu{
+    display: none;
+    position: fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background: rgba($color-light,.8);
+    z-index:9;
+}
+
+
+body.show-menu,
+body.archive.tax-cases.show-menu{
+    
+    .site-menu{
+    display: block;
+    }
+    
+    .site-header .site-title,
+    .site-header .hamburger{
+        background-color: transparent;
+    }
+    
+    .content-wrap,.site-footer{
+        filter: blur(5px) grayscale(1);
+    }
+}
+
+body.archive.tax-cases .site-menu{
+    background: rgba($color-green,.9);
+    color: white;
+}
+
+body.home .site-menu{
+    background: rgba($color-dark,.95);
+    color: white;
+}

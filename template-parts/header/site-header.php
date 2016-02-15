@@ -5,9 +5,9 @@
             <?php get_svg('logo'); ?>
         </a>
         <span class="site-description"><?php bloginfo('description'); ?></span>
-        <a href="#" class="hamburger">
-            Vis Menu
+        <a href="#" class="hamburger">Vis Menu
             <?php get_svg('hamburger');?>
+            <?php get_svg('menu-close');?>
         </a>
     </div>
 </header>

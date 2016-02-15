@@ -86,12 +86,14 @@ if($('.newsletter-puzzle').length){
                 if(puzzleMonkey.timerStopped === false){
                     
                     if(puzzleMonkey.timerPaused === false){
+                        
                         puzzleMonkey.time = ( Math.round(puzzleMonkey.time * 100 ) + 2 ) / 100;
-                    }
                     
-                    puzzleMonkey.time = puzzleMonkey.time.toFixed(2);
-                    if(puzzleMonkey.time < 10){puzzleMonkey.time = '0' + puzzleMonkey.time;}
-                    $counter.html(puzzleMonkey.time);
+                        puzzleMonkey.time = puzzleMonkey.time.toFixed(2);
+                        if(puzzleMonkey.time < 10){puzzleMonkey.time = '0' + puzzleMonkey.time;}
+                        $counter.html(puzzleMonkey.time);
+                        
+                        }
                 }
                 else{
                     clearInterval(puzzleMonkey.timer);
