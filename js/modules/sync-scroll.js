@@ -7,7 +7,7 @@ $(function(){if($('.fixed-aside').length){
     
     $(window).on('scroll', function () {
 
-        if($('.site-footer').offset().top < $(window).scrollTop() + $(window).height()){
+        if($('.page-content').offset().top + $('.page-content').innerHeight() < $(window).scrollTop() + $(window).height()){
             fancyScroll.addClass('bottom');
         }
         
@@ -25,10 +25,11 @@ $(function(){if($('.fixed-aside').length){
         if(fancyScroll.hasClass('bottom')){
         }
         
-		else if($('body').hasClass('fixed') && $(window).width() > 960 && !fancyScroll.hasClass('bottom')){
+		else if($(window).width() > 768 && !fancyScroll.hasClass('bottom')){
 
-			fancyScroll.scrollTop(fancyScrollAmount);
-
+            if(smamo_nav_fancy_manu_nav_animation_block === false){
+                fancyScroll.scrollTop(fancyScrollAmount);
+            }
 
 		}
 

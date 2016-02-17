@@ -17,7 +17,7 @@
         <div class="puzzle-form">
             <form action="<?php echo admin_url('admin-ajax.php') ?>">
                 <input type="hidden" name="action" value="puzzle-form"/>
-                <input type="hidden" name="solved" value="false"/>
+                <input type="hidden" name="state" value="1"/>
                 <input type="hidden" name="solve-time" value="null">
                 <div>
                     <p>Sæt din tid på vores High Score liste og modtag vores nyhedsbrev.</p>
@@ -31,7 +31,7 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="center">
-                    <a href="#" class="form-button submit">Send</a>
+                    <a href="#" class="form-button submit">Send<?php get_svg('loading') ?></a>
                 </div>
             </form>    
         </div>

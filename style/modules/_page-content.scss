@@ -2,23 +2,25 @@
     background: $color-light;
     font-size: 0;
     overflow: auto;
+    position: relative;
     
     main{
-        display: inline-block;
-        width: calc(100% - 280px);
-        float: left;
+        @media only screen and(min-width:768px){
+            min-height: 100vh;
+            width: calc(100% - 280px); 
+        }
         
         @media only screen and(min-width:960px){
             width: 75%;    
         }
         
         @media only screen and(min-width:1280px){
-            width: 50%;    
+            width: 60%;    
         }
+        
         
         background-color: $color-light-4;
         @extend %font-size;
-        min-height: 600px;
         
         article{
             position: relative;
@@ -61,13 +63,70 @@
     }
     
     aside{
-        @extend %font-size;
-        display: inline-block;
-        width: 280px;
+        display: block;
+        position: relative;
+        
+        .aside-left,
+        .aside-right{
+            @extend %font-size;
+        }
+        
+        @media only screen and(min-width:540px){
+            
+            .aside-left,
+            .aside-right{
+                width: 50%;
+                display: inline-block;
+                vertical-align: top;
+            }
+            
+        }
+        
+        @media only screen and(min-width:768px){
+            
+            .aside-left,
+            .aside-right{
+                width: 100%;
+            }
+            
+            width: 280px;
+            right: 0;
+            position: fixed;
+            top: 60px;
+            height: calc(100vh - 60px );
+            overflow: hidden;
+
+            &.bottom{
+                position: absolute;
+                top: auto;
+                bottom: 0;
+            }
+
+            .inner{
+                padding-top: 15px;
+            
+            }
+            
+            
+        }
+        
         @media only screen and(min-width:960px){
             width: 25%;    
         }
-        flat: right;
+        
+        @media only screen and(min-width:1280px){
+            width: 40%;
+            
+            .aside-left,
+            .aside-right{
+                
+                width: 50%;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+        
+        
         vertical-align: top;
     }
     

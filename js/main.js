@@ -1,4 +1,5 @@
 var ajaxURL = $('meta[name="ajax-url"]').attr('content');
+var smamo_nav_fancy_manu_nav_animation_block = false;
 $('meta[name=ajax-url]').remove();
 
 // @koala-append 'assets/svg.js';
@@ -6,7 +7,6 @@ $('meta[name=ajax-url]').remove();
 
 
 // @koala-append 'assets/viewport.js';
-// @koala-append 'assets/waitUntilExists.js';
 // @koala-append 'assets/autosize.js';
 // @koala-append 'assets/js.cookie.js';
 // @koala-append 'assets/styledselect.js';
@@ -23,3 +23,5 @@ $('meta[name=ajax-url]').remove();
 // @koala-append 'modules/newsletter-puzzle.js';
 // @koala-append 'modules/menu-toggle.js';
 // @koala-append 'modules/booking-form.js';
+// @koala-append 'modules/sync-scroll.js';
+// @koala-append 'modules/make-nav.js';

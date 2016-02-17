@@ -104,14 +104,14 @@
         margin-top: 20px;
         
         .field{
-            background: white;
+            background: lighten($color-green,20);
             
             input{
                 padding: 6px 10px;
             }
             
             label{
-                background: white;
+                background: lighten($color-green,20);
                 opacity:1!important;
                 padding-left: 10px;
             }
@@ -145,6 +145,26 @@
             &:hover{
                 
                 background-color: rgba(white,.2);
+            }
+            svg{
+                
+                display: inline-block;
+                width: 0px;
+                height: 35px;
+                stroke: white;
+                float: right;
+                margin-right: -25px;
+                vertical-align: top;
+                margin-left: 10px;
+                transition: width 200ms;
+            }
+        }
+        
+        form.loading a.form-button {
+            background-color: rgba(white,.2);
+            
+            svg{
+                width: 35px;
             }
         }
     }

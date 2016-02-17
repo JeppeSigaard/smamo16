@@ -1,5 +1,10 @@
+$sub-marker-size: 7px;
+$sub-marker-timing: 200ms;
+
 .side-menu,
 .side-sub-menu{
+    
+    overflow: hidden;
     
     a{
         display: block;
@@ -8,6 +13,55 @@
         font-weight: 300;
         transition: all 120ms;
         line-height: 1.5;
+        position: relative;
+        
+        &.menu-header{
+            display: block;
+            font-weight: 700;
+            line-height: 1.2;
+            color: $color-dark-green;
+            
+            &:before{
+                border-left-color: $color-dark-green!important;
+            }
+        }
+    } 
+}
+
+
+
+.side-sub-menu{
+    
+    padding: 15px 0px;
+    
+    a{
+        padding: 10px 25px;
+        line-height: 1.2;
+    }
+    
+    a:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -$sub-marker-size;
+            transform: translate(0,-50%);
+            width: 0px;
+            height: 0px;
+            border-left: $sub-marker-size solid #699;
+            border-bottom: $sub-marker-size solid transparent;
+            border-top: $sub-marker-size solid transparent;
+            transition: left $sub-marker-timing, border-color $sub-marker-timing;
+        }
+    
+    li.current-menu-item a:before,
+    &:hover li.current-menu-item a:hover:before,
+    &:hover li a:hover:before{
+        left:0px;
+        border-left: $sub-marker-size solid #699;
+    }
+    
+    &:hover li.current-menu-item a:before{
+        border-left: $sub-marker-size solid #ccc;
     }
     
 }
