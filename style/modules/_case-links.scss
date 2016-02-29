@@ -7,7 +7,7 @@
         @extend %font-size;
         border: 7.5px solid $color-light;
         display: inline-block;
-        verrtical-align: top;
+        vertical-align: top;
         width:50%;
         padding-bottom: 30%;
         position: relative;
@@ -16,6 +16,10 @@
         background-position: -10000px;
         transition: background-size 400ms;
         overflow: hidden;
+        
+        &.loading:before{
+            @extend %data-bg-loading;
+        }
         
         &:before{
             content: '';

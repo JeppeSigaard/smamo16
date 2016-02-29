@@ -97,6 +97,10 @@
                 
                 height:150px;
             }
+
+            &.loading{
+                @extend %data-bg-loading-black;
+            }
             
             width:100%;
             background-size: auto 300%;
@@ -107,10 +111,18 @@
         .face-spinner-middle .slice{
             background-position: 0px 50%;
             
+            &.loading{
+                @extend %data-bg-loading-black;
+            }
+            
         }
         
         .face-spinner-bottom .slice{
             background-position: 0px 100%;
+            
+            &.loading{
+                @extend %data-bg-loading-black;
+            }
             
         }
         

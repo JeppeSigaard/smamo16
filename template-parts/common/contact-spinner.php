@@ -31,7 +31,7 @@ $team = new WP_Query(array(
                 $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 if ($image_url) :
             ?>
-            <div class="slice" data-slice-id="<?php the_ID(); ?>" data-slice-url="<?php the_permalink(); ?>" data-bg="<?php echo $image_url[0]; ?>"></div>
+            <div class="slice loading" data-slice-id="<?php the_ID(); ?>" data-slice-url="<?php the_permalink(); ?>" data-bg="<?php echo $image_url[0]; ?>"></div>
             <?php endif; endwhile; wp_reset_postdata(); ?>
         </div>
         <div class="face-spinner-middle">

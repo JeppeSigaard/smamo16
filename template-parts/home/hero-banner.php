@@ -12,7 +12,7 @@ $banner = new WP_Query(array(
     <div class="inner">
         <?php $i = 0; while ($banner->have_posts()) : $banner->the_post(); $i++; ?>
             <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'hero-banner' );?>
-            <div class="hero-banner-item<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $image_url[0] ?>">
+            <div class="hero-banner-item loading<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $image_url[0] ?>">
                 <h3 class="hero-banner-item-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
                 <ul class="hero-banner-pages">
                     <?php $term_ps = get_posts(array('post_type' => 'page', 'post_parent' => get_the_ID())); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>

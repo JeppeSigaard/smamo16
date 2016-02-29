@@ -44,6 +44,10 @@
     opacity: 0;
     transition:opacity 0s;
     transition-delay: 120ms;
+    
+    &.loading{
+        @extend %data-bg-loading;
+    }
    
     
     &.active{

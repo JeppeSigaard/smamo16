@@ -1,0 +1,15 @@
+.article-preheader{
+    padding:0 0 50%;
+    @extend %fill-bg;
+    
+    &.loading{
+        @extend %data-bg-loading;
+    }
+    
+    @media only screen and(min-width:1600px){
+        
+        padding: 0;
+        height: 480px;
+    }
+    
+}
