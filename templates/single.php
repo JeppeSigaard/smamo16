@@ -2,7 +2,7 @@
 <section class="page-content">
     <div class="inner">
         <main class="content-main" id="content-main">
-            <?php if('page' === get_post_type(get_the_ID()) || 'post' === get_post_type(get_the_ID()) ) { get_template_part('template-parts/common/article-pre-header'); } ?>
+            <?php if('team' !== get_post_type(get_the_ID()) ) { get_template_part('template-parts/common/article-pre-header'); } ?>
             <article <?php post_class(); ?>>    
                 <?php get_template_part('template-parts/common/article-header'); ?>
                 <div class="article-content">
