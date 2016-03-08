@@ -63,28 +63,29 @@
         position: absolute;
         top:50%;
         margin-top:-80px;
-        left:70px;
+        left:55px;
         font-weight: 300;
         
     }
     
     ul{
         position: absolute;
-        left:70px;
+        left:55px;
         margin-top:120px;
         top:50%;
     }
     
     li{
         display: inline-block;
-        margin-right: 12px;
+        margin-right: 6px;
+        padding-right: 6px;
         text-transform: uppercase;
         font-style: italic;
         
         &:before{
             content: '\2022';
             position: relative;
-            left: -8px;
+            left: -7px;
             top:-2px;
             font-size: 75%;
         }
@@ -99,7 +100,7 @@
 .hero-banner-controls{
     position:absolute;
     z-index:3;
-    left: 70px;
+    left: 55px;
     top: 50%;
     font-size: 0;
     
