@@ -12,7 +12,7 @@ get_functions_part(array(
     'scripts',
     'no-emojis',
     'images',
-    
+    'heartbeat',
 ));
 
 // Kirki
@@ -43,6 +43,7 @@ get_functions_part(array(
     'slack-id',
     'front-page',
     'case-assets',
+    'banner-img',
     
 ),'meta-box');
 

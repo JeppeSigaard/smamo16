@@ -1,5 +1,6 @@
 <?php 
 $type = wp_get_post_terms(get_the_ID(), 'cases',array('hide_empty' => false));
+if ( isset($type[0]) ) :
 $banner = new WP_Query(array(
     'post_type' => 'case',
     'posts_per_page' => -1,
@@ -41,4 +42,11 @@ $banner = new WP_Query(array(
         </div>
     </div>
 </section>
+<?php endif; else : ?>
+<section class="hero-banner">
+    <div class="inner">
+        <div class="hero-banner-item loading" style="opacity: 1;"></div>
+    </div>
+</section>
+
 <?php endif; ?>

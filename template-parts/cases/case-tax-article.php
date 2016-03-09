@@ -1,4 +1,4 @@
-<?php $type = wp_get_post_terms(get_the_ID(), 'cases'); ?>
+<?php $type = wp_get_post_terms(get_the_ID(), 'cases'); if ( isset($type[0]) ) : ?>
 <section class="tax-article">
     <div class="inner">
         <article>
@@ -31,3 +31,17 @@
         </article>
     </div>
 </section>
+<?php else : ?>
+<section class="tax-article">
+    <div class="inner">
+        <article>
+            <header class="article-header">
+                <h1>Ingen cases</h1>
+            </header>
+            <div class="article-content">
+                <p>Der er ingen cases at vise. Måske hjælper det at vende tilbage senere?</p>
+            </div>
+        </article>
+    </div>
+</section>
+<?php endif; ?>
