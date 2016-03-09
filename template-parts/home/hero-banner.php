@@ -10,17 +10,17 @@ $banner = new WP_Query(array(
 <?php if ($banner->have_posts()) : ?>
 <section class="hero-banner">
     <div class="inner">
-        <?php $i = 0; while ($banner->have_posts()) : $banner->the_post(); $i++; ?>
+        <?php $i = 0; while ($banner->have_posts()) : $banner->the_post(); if (get_post_meta(get_the_ID(),'front_page',true) !== '1' ) : $i++;?>
             <?php $image_url = wp_get_attachment_image_src( get_post_meta(get_the_ID(),'banner-img',true), 'hero-banner' );?>
             <div class="hero-banner-item loading<?php if ($i === 1) { echo ' active'; } ?>" data-bg="<?php echo $image_url[0] ?>">
                 <h3 class="hero-banner-item-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
                 <ul class="hero-banner-pages">
-                    <?php $term_ps = get_posts(array('post_type' => 'page', 'post_parent' => get_the_ID())); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
+                    <?php $term_ps = get_posts(array('post_type' => 'page', 'post_parent' => get_the_ID(), 'posts_per_page' => -1 )); if( !empty($term_ps)) : foreach($term_ps as $page) : ?>
                     <li><a href="<?php echo get_permalink($page->ID) ?>"><?php echo $page->post_title ?></a></li>
                     <?php endforeach; endif; ?>
                 </ul>
             </div>
-        <?php endwhile; wp_reset_postdata(); ?>
+        <?php endif; endwhile; wp_reset_postdata(); ?>
         <div class="hero-banner-controls">
             <a href="#" class="icon nav-left"></a>
             <a href="#" class="icon nav-right"></a>

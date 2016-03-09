@@ -13,9 +13,9 @@
                 <?php the_title('<h1>','</h1>'); ?>    
             </header>
             <div class="article-content">
-                <?php the_excerpt(); ?>
+                <?php the_content(); ?>
             </div>
-            <a href="<?php the_permalink() ?>" class="home-read-more">Læs mere<?php get_svg('read-more'); ?></a>
+            <!-- <a href="<?php the_permalink() ?>" class="home-read-more">Læs mere<?php get_svg('read-more'); ?></a> -->
             <div class="article-boxes">
                 <?php $i = 0; $subpages = get_posts(array('post_parent' => get_the_ID(),'post_type' => 'page', 'posts_per_page' => 3 )); 
                 foreach($subpages as $sub) : $i++; ?>

@@ -8,8 +8,13 @@
         border: 7.5px solid $color-light;
         display: inline-block;
         vertical-align: top;
-        width:50%;
-        padding-bottom: 30%;
+        width:100%;
+        padding-bottom: 50%;
+        @media only screen and(min-width:768px){
+            width:50%;
+            padding-bottom: 30%;
+            
+        }
         position: relative;
         background-size: 0px;
         background-color: $color-dark-green;

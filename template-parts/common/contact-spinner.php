@@ -8,7 +8,7 @@ $team = new WP_Query(array(
     
     <div class="contact-info">
         <div class="inner">
-            <h3 class="info-title"><?php bloginfo('title'); ?></h3>
+            <h3 class="info-title">Byg en medarbejder</h3>
             <div class="info-description"> <?php echo html_entity_decode(get_theme_mod('info_long_description')); ?> </div>
             <div class="info-links">
                 <a class="info-email" href="mailto:<?php echo get_theme_mod('info_email'); ?>"><?php echo get_theme_mod('info_email'); ?></a>
