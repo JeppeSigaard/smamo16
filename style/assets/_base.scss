@@ -1,7 +1,7 @@
 html,body{
 
     @extend %font-size;
-    
+    min-width: 320px;
     font-family:$base-font;
     color:$base-color;
     font-weight: $base-font-weight;

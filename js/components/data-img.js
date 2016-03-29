@@ -15,13 +15,13 @@ var jio_data_img = {
       $imgSrcset = $img.attr('data-srcset'),
       $imgSizes = $img.attr('data-sizes'),
       $imgPlaceholder = new Image();
+      
+      $img.removeAttr('data-src data-bg data-srcset data-sizes');
 
     if (typeof $imgSrc !== 'undefined') {
       $imgPlaceholder.src = $imgSrc;
       $imgPlaceholder.onload = function() {
-        $img.removeClass('loading')
-          .removeAttr('data-src')
-          .attr('src', $imgSrc);
+        $img.removeClass('loading').attr('src', $imgSrc);
       };
     };
 
@@ -29,20 +29,14 @@ var jio_data_img = {
       $imgPlaceholder.srcset = $imgSrcset;
       $imgPlaceholder.sizes = $imgSizes;
       $imgPlaceholder.onload = function() {
-        $img.removeClass('loading')
-          .removeAttr('data-srcset')
-          .removeAttr('data-sizes')
-          .attr('srcset', $imgSrcset)
-          .attr('sizes', $imgSizes);
+        $img.removeClass('loading').attr('srcset', $imgSrcset).attr('sizes', $imgSizes);
       };
     }
 
     if (typeof $imgBg !== 'undefined') {
       $imgPlaceholder.src = $imgBg;
       $imgPlaceholder.onload = function() {
-        $img.removeClass('loading')
-          .removeAttr('data-bg')
-          .css({
+        $img.removeClass('loading').css({
           backgroundImage: 'url(' + $imgBg + ')',
         });
       };

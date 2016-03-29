@@ -1,7 +1,11 @@
 .home-article,
 .tax-article{
     background-color: white;
-    padding: 70px;
+    padding: 35px 15px;
+    @media only screen and(min-width:640px){
+        padding: 70px;
+    }
+    
     min-height:600px;
     
     &:after{
@@ -29,19 +33,35 @@
         }
         
         h1{
-            font-size: 400%;
+            font-size: 200%;
+            @media only screen and(min-width:480px){
+                
+                font-size: 250%;
+                margin-bottom: 30px;
+            }
+            
+            @media only screen and(min-width:640px){
+                font-size: 400%;
+                
+            }
+            
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         
     }
     
     .article-content{
-        font-size: 125%;
+       
+        @media only screen and(min-width:480px){
+             font-size: 125%;
+            margin-bottom: 40px;
+        }
+        
         @extend %article-font-style;
         color: lighten($color-dark-2,10);
         max-width:640px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     
     .home-read-more{

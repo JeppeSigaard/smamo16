@@ -7,17 +7,33 @@
     .contact-info,
     .contact-face-spinner{
         @extend %font-size;
-        display: inline-block;
-        width: 50%;
+        display: block;
+        width: 100%;
+        position:absolute;
         vertical-align: top;
+        
+        @media only screen and(min-width:768px){
+            display: inline-block;
+            width: 50%;
+            
+        }
+        
     }
     
     .contact-info{
-        padding: 70px 0px 0px 70px;
+        padding: 20px;
+        opacity: 0;
+        background-color: inherit;
+        
+        @media only screen and(min-width:768px){
+            padding: 70px 0px 0px 70px;
+            opacity:1 ;
+
+        }
+        
         @media only screen and(min-width:1600px){
             
             padding: 100px 0px 0px 70px;
-            
         }
 
         
@@ -88,7 +104,13 @@
         }
         
         .slice{
-            height:125px;
+            height:90px;
+            
+            @media only screen and(min-width:480px){
+                
+                height:125px;
+            }
+            
             @media only screen and(min-width:1600px){
                 
                 height:150px;

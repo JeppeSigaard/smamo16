@@ -125,7 +125,11 @@ $header-height: 60px;
     }
     
     .site-description{
-        font-size: 14px;
+        font-size: 10px;
+        @media only screen and(min-width:480px){
+            font-size: 14px;
+        }
+        
         color: white;
         height: $header-height;
         line-height: $header-height;
