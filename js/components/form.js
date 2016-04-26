@@ -11,12 +11,28 @@ var checkSuccess = function(target){
 var formHandleResponse = function(response,form){
 
     form.removeClass('loading');
-    
-    $.event.trigger({
-        type : "formReturn",
-        response : response,
-        target : form,
-    });
+
+    if(response.success){
+        if(!form.find('.form-success').length){
+            var $formSucces = $('<div class="form-success"></div>');
+            form.html($formSucces);
+        }
+
+        form.find('.form.error').remove();
+        form.find('.form-success').html(response.success);
+        form.addClass('success');
+    }
+
+    if(response.error){
+        if(!form.find('.form-error').length){
+            var $formError = $('<div class="form-error"></div>');
+            form.append($formError);
+        }
+
+        form.find('.form-error').html(response.error);
+        form.addClass('error');
+
+    }
 
 }
 
@@ -29,11 +45,6 @@ var validateForm = function(form){
         if($(this).hasClass('error')){
             ready = false;
         }
-
-		if($(this).is(':required') || $(this).hasClass('required') && $(this).val() === ''){
-			$(this).removeClass('success').addClass('error');
-			ready = false;
-		}
 
     });
 
@@ -56,7 +67,7 @@ var formJsInit = function(){
         checkSuccess($(this));
     });
 
-    autosize($('form textarea:not(.no-autosize)'));
+    autosize($('form textarea:not(.no-autosize):visible'));
 
     // Check for allerede udfyldt felter ved sideload
     $('form input, form textarea').each(function(){
@@ -103,20 +114,23 @@ var formJsInit = function(){
                 target.val(value);
 
             }
-            
-            if(target.is('input[data-restrict="true"]')){
-                
-                var value = target.val().replace(/[^0-9a-zA-ZÆØÅæøå ]/g, '');
-
-                target.val(value);
-                
-            }
 
         },
 
         click : function(e){
             var t = $(e.target);
 
+            if(t.is('.front-form-expand')){
+                e.preventDefault();
+                t.hide();
+                $(this).addClass('active').animate({opacity: 1},200);
+                $('.front-form').find('.hidden').removeClass('hidden');
+                $('html,body').animate({scrollTop: $('.front-form').offset().top - $('.site-header').height()});
+                autosize($('form textarea:not(.no-autosize):visible'));
+                
+               
+            }
+            
             if(t.is('.submit')){
                 e.preventDefault();
 
@@ -130,14 +144,14 @@ var formJsInit = function(){
                     form.addClass('loading');
 
                     $.ajax({
-                        url : action,
-                        type : 'POST',
-                        data : formData,
-                        dataType : 'json',
-                        success : function(response){
-                            formHandleResponse(response,form);
-                        },
-                    });
+                                url : action,
+                                type : 'POST',
+                                data : formData,
+                                dataType : 'json',
+                                success : function(response){
+                                    formHandleResponse(response,form);
+                                },
+                            });
 
                 }
             }

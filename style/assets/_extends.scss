@@ -61,16 +61,30 @@
 
 %data-bg-loading{
     background-color: $color-dark-green;
-    background-image: url('../statics/svg/ripple.svg');
-    background-size: auto 50%;
-    background-position: center;
-    background-repeat: no-repeat;
+    
+    &:before{
+        content:'';
+        @extend %fill-all;
+        animation: spinLoader linear infinite reverse .7s;    
+        background-image: url('../statics/svg/doodle_white.svg');
+        background-size: auto 40%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
 }
 
 %data-bg-loading-black{
     background-color: transparent;
-    background-image: url('../statics/svg/ripple-black.svg');
-    background-size: auto 50%;
-    background-position: center;
-    background-repeat: no-repeat;
+    
+    &:before{
+        content:'';
+        @extend %fill-all;
+        animation: spinLoader linear infinite .7s;
+        background-color: transparent;
+        background-image: url('../statics/svg/doodle_green.svg');
+        background-size: auto 40%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
