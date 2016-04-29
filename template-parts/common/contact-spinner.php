@@ -3,6 +3,29 @@ $team = new WP_Query(array(
     'post_type' => 'team',
     'posts_per_page' => -1,
 ));
+
+$spinner_items = array();
+while ( $team->have_posts() ) : $team->the_post();
+
+$images = get_post_meta(get_the_ID(),'spinner_img',false);
+    if (!empty($images)) : foreach ( $images as $img ) :
+
+        $img_url = wp_get_attachment_image_src( $img, 'full' );
+
+        $spinner_items[] = array(
+            'id' => get_the_ID(),
+            'img' => $img_url[0],
+            'href' => get_permalink(get_the_ID()),
+        );
+
+    endforeach; endif;
+endwhile; 
+
+wp_reset_postdata();
+
+if (!empty($spinner_items)) :
+
+shuffle($spinner_items);
 ?>
 <section class="contact-spinner">
     
@@ -25,14 +48,9 @@ $team = new WP_Query(array(
     
     <div class="contact-face-spinner">
         <div class="face-spinner-top">
-            <?php 
-                while ( $team->have_posts() ) : $team->the_post();
-                $id = get_the_ID();
-                $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
-                if ($image_url) :
-            ?>
-            <div class="slice loading" data-slice-id="<?php the_ID(); ?>" data-slice-url="<?php the_permalink(); ?>" data-bg="<?php echo $image_url[0]; ?>"></div>
-            <?php endif; endwhile; wp_reset_postdata(); ?>
+            <?php foreach ( $spinner_items as $item ) : ?>
+            <div class="slice loading" data-slice-id="<?php echo $item['id']; ?>" data-slice-url="<?php echo $item['href'] ?>" data-bg="<?php echo $item['img']; ?>"></div>
+            <?php endforeach; ?>
         </div>
         <div class="face-spinner-middle">
         </div>
@@ -45,3 +63,4 @@ $team = new WP_Query(array(
         </div>   
     </div>
 </section>
+<?php endif; ?>

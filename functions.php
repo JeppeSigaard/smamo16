@@ -13,6 +13,7 @@ get_functions_part(array(
     'no-emojis',
     'images',
     'heartbeat',
+    'menu',
 ));
 
 // Kirki
@@ -44,6 +45,7 @@ get_functions_part(array(
     'front-page',
     'case-assets',
     'banner-img',
+    'spinner-img',
     
 ),'meta-box');
 

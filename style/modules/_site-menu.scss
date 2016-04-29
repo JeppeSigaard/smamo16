@@ -1,3 +1,12 @@
+.menu-of-the-year{
+    font-size: 200%;
+    @include center(true,true);
+    width:calc(100% - 20px);
+    text-align: center;
+    pointer-events: none;
+    opacity:.2;
+}
+
 .site-menu{
     display: none;
     position: fixed;
@@ -35,4 +44,43 @@ body.archive.tax-cases .site-menu{
 body.home .site-menu{
     background: rgba($color-dark,.95);
     color: white;
+}
+
+
+
+ul.main-menu{
+
+    font-weight: bold;
+    display: block;
+    font-size: 125%;
+    position: relative;
+    padding:10px;
+    margin-top:60px;
+    max-height: calc(100vh - 70px);
+    overflow: scroll;
+    line-height: 2;
+    text-align: center;
+    
+    .menu-item-has-children a:after{
+        content:'';
+        position:relative;
+        display: inline-block;
+        height: 3px;
+        width: 3px;
+        margin-left: 5px;
+        vertical-align: middle;
+        border-top: 1px solid white;
+        border-right: 1px solid white;
+        transform: rotate(45deg);
+    }
+    
+    .sub-menu{
+        display: none;
+    }
+    
+    @media only screen and(min-width:480px){
+        padding: 20px;
+        
+    }
+    
 }
