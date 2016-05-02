@@ -13,7 +13,8 @@ $images = get_post_meta(get_the_ID(),'spinner_img',false);
         $img_url = wp_get_attachment_image_src( $img, 'full' );
 
         $spinner_items[] = array(
-            'id' => get_the_ID(),
+            'id' => $img,
+            'post_id' => get_the_ID(),
             'img' => $img_url[0],
             'href' => get_permalink(get_the_ID()),
         );
@@ -29,32 +30,40 @@ shuffle($spinner_items);
 ?>
 <section class="contact-spinner">
     
-    <div class="contact-info">
+    <article class="contact-info visible">
         <div class="inner">
             <h3 class="info-title">Byg en medarbejder</h3>
-            <div class="info-description"> <?php echo html_entity_decode(get_theme_mod('info_long_description')); ?> </div>
+            <div class="info-description"></div>
             <div class="info-links">
-                <a class="info-email" href="mailto:<?php echo get_theme_mod('info_email'); ?>"><?php echo get_theme_mod('info_email'); ?></a>
-                <a class="info-phone" href="tel:<?php echo get_theme_mod('info_telefon'); ?>"><?php echo get_theme_mod('info_telefon'); ?></a>
-                <div class="info-links-social">
-                    <a href="">Facebook</a>
-                    <a href="">Linkedin</a>
-                    <a href="">Twitter</a>
-                    <a href="">Instagram</a>
-                </div>
             </div>
         </div>
-    </div>
+    </article>
+    <?php while ($team->have_posts() ) : $team->the_post(); ?>
+    <article <?php post_class('contact-info hidden') ?>>
+        <div class="inner">
+            <h3 class="info-title"><?php echo esc_attr(get_post_meta(get_the_ID(), 'name', true)) ?></h3>
+            <div class="info-description"><?php the_excerpt(); ?></div>
+            <div class="info-links">
+            </div>
+        </div>
+    </article>
+    <?php endwhile; wp_reset_postdata(); ?>
     
     <div class="contact-face-spinner">
         <div class="face-spinner-top">
             <?php foreach ( $spinner_items as $item ) : ?>
-            <div class="slice loading" data-slice-id="<?php echo $item['id']; ?>" data-slice-url="<?php echo $item['href'] ?>" data-bg="<?php echo $item['img']; ?>"></div>
+            <div class="slice loading" data-post-id="<?php echo $item['post_id'] ?>" data-slice-id="<?php echo $item['id']; ?>" data-slice-url="<?php echo $item['href'] ?>" data-bg="<?php echo $item['img']; ?>"></div>
             <?php endforeach; ?>
         </div>
         <div class="face-spinner-middle">
+            <?php shuffle($spinner_items); foreach ( $spinner_items as $item ) : ?>
+            <div class="slice loading" data-post-id="<?php echo $item['post_id'] ?>" data-slice-id="<?php echo $item['id']; ?>" data-slice-url="<?php echo $item['href'] ?>" data-bg="<?php echo $item['img']; ?>"></div>
+            <?php endforeach; ?>
         </div>
         <div class="face-spinner-bottom">
+            <?php shuffle($spinner_items); foreach ( $spinner_items as $item ) : ?>
+            <div class="slice loading" data-post-id="<?php echo $item['post_id'] ?>" data-slice-id="<?php echo $item['id']; ?>" data-slice-url="<?php echo $item['href'] ?>" data-bg="<?php echo $item['img']; ?>"></div>
+            <?php endforeach; ?>
         </div>
         <div class="face-spinner-controls">
             <a href="#" class="spinner-btn spin-top"><?php get_svg('bevel'); ?></a>
