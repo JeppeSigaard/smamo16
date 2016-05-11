@@ -1,5 +1,5 @@
 // Fancy centering with extras callbackish...
-@mixin center($left:false,$top:false,$transform:null){
+@mixin center($left:false, $top:false, $transform:null){
     position:absolute;
     $left-c: 0;
     @if($left){

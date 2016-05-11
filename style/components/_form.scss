@@ -69,7 +69,14 @@ form{
         border-bottom: $input-border-width dashed rgba($monkey-black,.3);
     }
     
-    >div,.split>div,>p{
+    .center{
+        text-align: center;
+    }
+    
+    >div,
+    .split>div,
+    >p, 
+    section>div{
         position:relative;
         font-size:$input-font-size;
         margin-top:$label-active-size + $base-margin;
@@ -406,6 +413,7 @@ a.form-button {
     box-shadow: $button-shadow;
     transition:background-color 150ms;
     outline: none;
+    vertical-align: middle;
     
     &:hover,&:focus{
         background-color: lighten($monkey-black,5);
@@ -436,11 +444,118 @@ a.form-button {
         }
     }
     
+    &.outline{
+        background-color: transparent;
+        color:#777;
+        box-shadow:none;
+        border: 1px solid #777;
+        transition: color 120ms, border 120ms, background-color 120ms;
+        &:hover,&:focus{
+            color:#444;
+            border: 1px solid #444;
+            background-color: rgba(white,.4);
+        }
+    }
+    
+    &.fixwide{
+        width: 170px;
+        display: block;
+        margin:auto;
+        
+        @media only screen and(min-width:480px){
+            
+            display: inline-block;
+        }
+        
+    }
+    
+    &.margin{
+         margin-bottom:10px;
+        
+        @media only screen and(min-width:480px){
+            margin-right:10px;
+            margin-bottom: 0px;
+            
+        }
+        
+       
+    }
+    
+    
     &.disabled,
     &.disabled:hover,
     &.disabled:focus{
         background-color:#ccc;
         cursor:default;
     }
+}
+
+form section.form-section{
+    position: relative;
+}
+form section.hidden{
+    display: none;
+}
+
+form .toggle{
+	
+	div{
+		position: relative;
+		margin-bottom: 10px;
+	}
+	
+	.cb-desc{
+		font-size: 80%;
+		line-height: 1.5;
+		padding:0px 10px 5px 10px;
+	}
+	
+	input[type="checkbox"]{
+		width: 100%;
+		display: block;
+		height:40px;
+		line-height: 40px;
+		border: none;
+
+		&:after{
+			text-align: left;
+			line-height: 40px;
+			padding-left: 10px;
+			display:block;
+			position:absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border: none;
+			font-size: 0;
+			transition: font-size 120ms, background-color 120ms;
+		}
+
+		&:hover:after{
+			background-color: lighten(#699, 40);
+		}
+
+
+
+		&+label{
+			pointer-events: none;
+			height:40px;
+			line-height: 40px;
+			left:0;
+			padding: 0px 10px;
+			transition: left 120ms;
+		}
+		&:checked:after{
+			font-size: 120%;
+			background-color: #699;
+		}
+
+		&:checked +label{
+			color: white;
+			font-weight: bold;
+			left: 20px;
+		}
+	}
 }
 

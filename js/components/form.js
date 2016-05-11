@@ -119,7 +119,7 @@ var formJsInit = function(){
 
         click : function(e){
             var t = $(e.target);
-
+            
             if(t.is('.front-form-expand')){
                 e.preventDefault();
                 t.hide();
@@ -129,6 +129,16 @@ var formJsInit = function(){
                 autosize($('form textarea:not(.no-autosize):visible'));
                 
                
+            }
+            
+            if (t.is('.form-section .section-next')){
+                e.preventDefault();
+                t.parents('.form-section').fadeOut(100).next('.form-section').delay(125).fadeIn(100);
+            }
+            
+            if (t.is('.form-section .section-prev')){
+                e.preventDefault();
+                t.parents('.form-section').fadeOut(100).prev('.form-section').delay(125).fadeIn(100);
             }
             
             if(t.is('.submit')){
@@ -163,5 +173,5 @@ var formJsInit = function(){
 $(function(){
 
     formJsInit();
-
+    
 });

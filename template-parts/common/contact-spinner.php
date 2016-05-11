@@ -32,7 +32,7 @@ shuffle($spinner_items);
     
     <article class="contact-info visible">
         <div class="inner">
-            <h3 class="info-title">Byg en medarbejder</h3>
+            <h3 class="info-title">Vores team</h3>
             <div class="info-description"></div>
             <div class="info-links">
             </div>

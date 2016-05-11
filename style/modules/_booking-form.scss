@@ -5,6 +5,8 @@
 .booking-form{
     display: none;
     position: fixed;
+    min-height: 700px;
+    overflow:scroll;
     z-index: 9;
     top: 0;
     left: 0;
@@ -20,9 +22,10 @@
     form{
         position: relative;
         top: -50px;
-        max-width: 540px;
+        height:540px;
+        max-width: 480px;
         margin: auto;
-        font-size: 125%;
+        font-size: 120%;
         padding: 20px;
         transform-style: preserve-3d;
         
