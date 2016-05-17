@@ -1,12 +1,3 @@
-.menu-of-the-year{
-    font-size: 200%;
-    @include center(true,true);
-    width:calc(100% - 20px);
-    text-align: center;
-    pointer-events: none;
-    opacity:.2;
-}
-
 .site-menu{
     display: none;
     position: fixed;
@@ -47,40 +38,68 @@ body.home .site-menu{
 }
 
 
-
-ul.main-menu{
-
-    font-weight: bold;
-    display: block;
-    font-size: 125%;
-    position: relative;
-    padding:10px;
-    margin-top:60px;
-    max-height: calc(100vh - 70px);
-    overflow: scroll;
-    line-height: 2;
-    text-align: center;
-    
-    .menu-item-has-children a:after{
-        content:'';
-        position:relative;
-        display: inline-block;
-        height: 3px;
-        width: 3px;
-        margin-left: 5px;
-        vertical-align: middle;
-        border-top: 1px solid white;
-        border-right: 1px solid white;
-        transform: rotate(45deg);
-    }
-    
-    .sub-menu{
-        display: none;
-    }
-    
-    @media only screen and(min-width:480px){
-        padding: 20px;
+.site-menu>ul{
+    height: calc(100vh - 70px);
+    margin:70px auto 50px;
+    padding: 10px;
+    max-width: 1400px;
+    @media only screen and(min-width:768px){
+        margin:100px auto 50px;
+        height: calc(100vh - 100px);
         
     }
     
+    position:relative;
+    overflow: scroll;
+    font-size: 0;
+}
+
+.menu-list{
+    @extend %font-size;
+    
+    @media only screen and(min-width:640px){
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+        padding: 10px;
+    }
+    @media only screen and(min-width:1080px){
+        
+        width: 25%;
+        padding: 10px 20px;
+    }
+    
+    ul{
+        padding: 10px 0px 20px;
+        
+        li{
+            line-height: $base-line-height;
+            margin-bottom: 10px;
+        }
+    }
+    
+}
+
+.menu-list-heading{
+    background: white;
+    color: $base-color;
+    padding: 5px;
+    font-size: 120%;
+}
+
+.team-list-item{
+    margin-bottom: 20px;
+    clear: both;
+    overflow: auto;
+    
+    img{
+        float: left;
+        width:80px;
+        margin-right: 10px;
+    }
+    
+    span,a{
+        display: block;
+        margin-top: 10px;
+    }
 }
