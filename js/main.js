@@ -14,7 +14,6 @@ $('meta[name=ajax-url]').remove();
 // @koala-append 'assets/typewriter.js';
 
 // @koala-append 'components/data-img.js';
-// @koala-append 'components/form.js';
 
 
 

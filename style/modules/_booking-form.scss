@@ -5,7 +5,7 @@
 .booking-form{
     display: none;
     position: fixed;
-    min-height: 700px;
+    min-height: 480px;
     overflow:scroll;
     z-index: 9;
     top: 0;
@@ -13,38 +13,117 @@
     bottom: 0;
     right: 0;
     background: rgba($color-light,.98);
-    
-    .inner{
-        @include center(true,true);
-        width: 100%;
+    @media only screen and(min-width:960px){
+        font-size: 120%;      
     }
     
-    form{
-        position: relative;
-        top: -50px;
-        height:540px;
-        max-width: 480px;
-        margin: auto;
-        font-size: 120%;
-        padding: 20px;
-        transform-style: preserve-3d;
+    .form-slide{
+        @include center(false,true);
+        width:100%;
+        padding:20px;
+        @media only screen and(min-width:640px){
+            width: 50%;
+            min-width: 640px;
+            padding:40px;
+        }
         
-        label.stayup, input[type="text"]:focus+label, input[type="email"]:focus+label, input[type="tel"]:focus+label, input[type="password"]:focus+label, input[type="number"]:focus+label, textarea:focus+label{
-            top: -20px;
+        
+        
+        opacity: .05;
+        pointer-events: none;
+        z-index: 1;
+        transition:opacity 320ms;
+        
+        &.is-selected{
+            opacity: 1;
+            pointer-events: all;
+            z-index: 11;
         }
     }
     
-    .preheader{
-        font-size: 125%;
+    .form-progress{
+        width: 0;
+        position:fixed;
+        height: 10px;
+        top: 0;
+        left: 0;
+        background-color: $color-dark-green;
+        transition: width 500ms, height 500ms;
+        
+    }
+    .form-progress[data-progress="0"]{
+            width: 33% ;
+        }
+    
+    .form-progress[data-progress="1"]{
+            width: 66% ;
+        }
+    .form-progress[data-progress="2"]{
+        width: 100% ;
+    }
+    
+    .form-progress[data-progress="3"]{
+        width: 100% ;
+        height:0;
+    }
+    
+    .form-control{
+        z-index: 10;
+        cursor: pointer;
         display: block;
-        margin-bottom: 1rem;
-        font-style: italic;
+        position: absolute;
+        height: 100%;
+        opacity: .3;
+        transition: opacity 120ms, transform 120ms;
+        &:hover{
+            opacity:.8;
+        }
+        
+        &.disabled,
+        &.disabled:hover{
+            opacity: .1;
+            //transform: scale(0);
+            cursor: default;
+        }
+        
+        width: calc(50% - 320px);
+        min-width: 50px;
+        @media only screen and(min-width:1280px){
+            width: 25%;
+        }
+        
+        svg{
+            @include center(true,true);
+            border: 3px solid $color-dark-green;
+            fill: $color-dark-green;
+            //border-radius: 100%;
+            width: calc(100% - 20px);
+            @media only screen and(min-width:960px){
+                
+                 width: calc(100% - 40px);
+            }
+            
+            @media only screen and(min-width:1280px){
+                
+                 width: calc(100% - 100px);
+            }
+            
+            @media only screen and(min-width:1600px){
+                
+                 width: calc(100% - 150px);
+            }
+            
+            background: rgba($color-green,.05);
+        }
+        
+        &.form-control-left{
+            left: 0;
+            
+            
+        }
+        &.form-control-right{
+            left: auto;
+            right: 0;
+        }
     }
-    
-    h3{
-        font-size:250%;
-        font-weight: 900;
-        margin-bottom: 1rem;
-    }
-    
 }

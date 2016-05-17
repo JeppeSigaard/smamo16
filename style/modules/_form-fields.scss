@@ -1,0 +1,150 @@
+$field-width-max: 540px;
+$error-color: #c44;
+
+/* HEADER */
+
+.form-slide-header{
+    max-width:$field-width-max;
+    margin:auto;
+    @extend %article-font-style;
+    
+    h2{
+        font-size: 2rem;
+        font-weight: 900;
+        border-bottom: 1.5rem;
+        
+    }
+    
+    p{
+        margin-bottom: 10px;
+    }
+}
+
+/* CHEKCBOX */
+
+$cb-height: 50px;
+
+.booking-form .cb{
+    position:relative;
+    max-width: $field-width-max;
+    margin: auto;
+    height: $cb-height;
+    line-height: $cb-height;
+    margin-bottom: 10px;
+    
+    input,
+    input:before,
+    label{
+        box-sizing: border-box;
+        @extend %fill-all;
+        display: block;
+        border: none;
+        width:100%;
+        height:100%;
+        cursor: pointer;
+        font-size: inherit;
+        margin: 0;
+        padding: 0;
+    }
+    
+    input:before{
+        display: block;
+        content: '\2713';
+        line-height: $cb-height;
+        padding-left: 10px;
+        font-size:0;
+        background-color: #f0f0f0;
+        border-radius: 1px;
+        border: 1px solid rgba(black,.1);
+        color: white;
+        transition: background-color 120ms, font-size 120ms;
+    }
+    
+    input:hover:before{
+        background-color: lighten($color-green,40);
+    }
+    
+    
+    label{
+        pointer-events: none;
+        padding:0px 15px;
+        transition: color 120ms, padding 120ms;
+        line-height: inheritx;
+    }
+    
+    input:checked:before{
+        background-color: $color-green;
+        font-size: inherit;
+        border: 1px solid rgba($color-green,.1);
+    }
+    
+    
+    input:checked+label{
+        color: white;
+        padding-left: 30px;
+    }
+    
+    input.error+label{
+        color: $error-color;
+    }
+    
+    input.error:before{
+        border-color: $error-color;
+    }
+}
+
+
+/* TEXT FIELDS */
+
+.booking-form  .tf{
+    max-width: $field-width-max;
+    margin: auto;
+    height: $cb-height;
+    line-height: $cb-height;
+    position:relative;
+    margin-top: 20px;
+    
+    label{
+        @extend %fill-all;
+        z-index: 1;
+        transition: all 120ms;
+    }
+    
+    input{
+        z-index: 2;
+        outline: none;
+        font-size: inherit;
+        display: block;
+        background-color: transparent;
+        border: none;
+        @extend %fill-all;
+        width:100%;
+        border-bottom: 1px solid rgba(black,.2);
+        
+        &:focus,
+        &.stayup{
+            border-bottom: 1px solid rgba(black,.4);
+            
+            +label{
+                font-size: 14px;
+                height: 14px;
+                line-height: 14px;
+                top: -6px;
+                opacity: .8;
+            }
+        }
+        
+        &.stayup{
+            border-bottom: 1px solid $color-green;
+        }
+        
+        &.error{
+            color: $error-color;
+            border-bottom: 1px solid $error-color;
+            
+            +label{
+                color: $error-color;
+            }
+        }
+    }
+}
