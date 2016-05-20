@@ -77,7 +77,7 @@ function smamo_booking_form(){
         
         
         // Send
-        //$response['slack_curl'] = slack($text,$attachments); 
+        $response['slack_curl'] = slack($text,$attachments); 
     }
     
     

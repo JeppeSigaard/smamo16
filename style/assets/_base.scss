@@ -7,6 +7,7 @@ html,body{
     font-weight: $base-font-weight;
     box-sizing:border-box;
     text-rendering: geometricPrecision;
+    shape-rendering: geometricPrecision;
     backface-visibility: hidden;
     -webkit-text-size-adjust: 100%;
     line-height: 1;

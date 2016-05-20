@@ -23,8 +23,10 @@
 }
 
 @keyframes flyaway{
-	0%{ width: 0%;}
-	10%{ width: 50%; max-width: 500px;}
-	40%{width: 50%; max-width: 500px; transform: translate(-50%,-50%) rotate(0deg); }
-	100%{width: 0%; transform: translate(-25%,-25%) rotate(750deg);}
+	0%{ transform: scale(0) rotate(0deg) translate(0,0); transform-origin: center;}
+	12%{ transform: scale(1) rotate(0deg) translate(0,0); transform-origin: center;}
+	30%{ transform: scale(1) rotate(0deg) translate(0,0); transform-origin: center; }
+	40%{ transform: scale(1.1) rotate(-10deg) translate(-20%,-20%); transform-origin: center; }
+	50%{ transform: scale(1.1) rotate(-10deg) translate(-20%,-20%); transform-origin: center; }
+	100%{ transform:  scale(0) rotate(850deg) translate(-50%,-50%) ;transform-origin: right top;}
 }

@@ -168,10 +168,17 @@
 	fill: #477;
 	top: 50%;
 	left: 50%;
-	transform-origin: right bottom;
+	width: 100%;
+	max-width: 500px;
+	
 	transform: translate(-50%,-50%);
-	width: 0px;
-	&.animate{
+    
+    svg{
+        transform: scale(0) rotate(0deg) translate(0,0);
+    }
+    
+	&.animate svg{
 		animation: flyaway 1 1800ms;
+		transform-origin: center;
 	}
 }
