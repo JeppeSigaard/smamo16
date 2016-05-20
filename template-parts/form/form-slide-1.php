@@ -4,23 +4,23 @@
         <p>Hvad kunne du tænke dig at mødes om?</p>
     </header>
     <div class="cb">
-        <input type="checkbox" value="En ny visuel profil">
+        <input type="checkbox" name="about[]" value="En ny visuel profil">
         <label>En ny visuel profil</label>
     </div>
     <div class="cb">
-        <input type="checkbox" value="Et moderne teknologisk koncept">
+        <input type="checkbox" name="about[]" value="Et moderne teknologisk koncept">
         <label>Et moderne teknologisk koncept</label>
     </div>
     <div class="cb">
-        <input type="checkbox" value="En webshop">
+        <input type="checkbox" name="about[]" value="En webshop">
         <label>En webshop</label>
     </div>
     <div class="cb">
-        <input type="checkbox" value="En skarp markedsføringsstrategi">
+        <input type="checkbox" name="about[]" value="En skarp markedsføringsstrategi">
         <label>En skarp markedsføringsstrategi</label>
     </div>
     <div class="cb">
-        <input type="checkbox" value="Noget helt andet">
+        <input type="checkbox" name="about[]" value="Noget helt andet">
         <label>Noget helt andet</label>
     </div>
 </div>

@@ -21,3 +21,10 @@
 	99.9% {transform: rotate(324deg);}
 	100% {transform: rotate(360deg);}
 }
+
+@keyframes flyaway{
+	0%{ width: 0%;}
+	10%{ width: 50%; max-width: 500px;}
+	40%{width: 50%; max-width: 500px; transform: translate(-50%,-50%) rotate(0deg); }
+	100%{width: 0%; transform: translate(-25%,-25%) rotate(750deg);}
+}

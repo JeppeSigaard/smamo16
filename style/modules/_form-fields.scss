@@ -8,6 +8,10 @@ $error-color: #c44;
     margin:auto;
     @extend %article-font-style;
     
+    &.hidden{
+        display: none;
+    }
+    
     h2{
         font-size: 2rem;
         font-weight: 900;
@@ -45,6 +49,7 @@ $cb-height: 50px;
         font-size: inherit;
         margin: 0;
         padding: 0;
+        outline: none;
     }
     
     input:before{
@@ -60,7 +65,8 @@ $cb-height: 50px;
         transition: background-color 120ms, font-size 120ms;
     }
     
-    input:hover:before{
+    input:hover:before,
+    input:focus:before{
         background-color: lighten($color-green,40);
     }
     
@@ -81,7 +87,7 @@ $cb-height: 50px;
     
     input:checked+label{
         color: white;
-        padding-left: 30px;
+        padding-left: 35px;
     }
     
     input.error+label{
@@ -99,10 +105,10 @@ $cb-height: 50px;
 .booking-form  .tf{
     max-width: $field-width-max;
     margin: auto;
-    height: $cb-height;
-    line-height: $cb-height;
+    height: 40px;
+    line-height: 40px;
     position:relative;
-    margin-top: 20px;
+    margin-top: 25px;
     
     label{
         @extend %fill-all;
@@ -129,7 +135,7 @@ $cb-height: 50px;
                 font-size: 14px;
                 height: 14px;
                 line-height: 14px;
-                top: -6px;
+                top: -15px;
                 opacity: .8;
             }
         }

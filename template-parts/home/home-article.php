@@ -15,7 +15,11 @@
             <div class="article-content">
                 <?php the_excerpt(); ?>
             </div>
-            <a href="<?php the_permalink(); ?>" class="home-read-more">Læs mere <?php get_svg('read-more'); ?></a>
+            <a href="<?php the_permalink(); ?>" class="home-read-more">Læs mere
+                <svg viewBox="0 0 30 24">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-read-more"></use>
+                </svg>
+            </a>
             <div class="article-boxes">
                 <?php $i = 0; $subpages = get_posts(array('post_parent' => get_the_ID(),'post_type' => 'page', 'posts_per_page' => 3 )); 
                 foreach($subpages as $sub) : $i++; ?>
@@ -25,7 +29,11 @@
                         <div class="box-content">
                             <?php echo apply_filters('the_content',($sub->post_excerpt !== '') ? $sub->post_excerpt : wp_trim_words($sub->post_content, $num_words = 55)); ?>
                         </div>
-                        <span class="home-read-more">Læs mere <?php get_svg('read-more'); ?></span>
+                        <span class="home-read-more">Læs mere
+                            <svg viewBox="0 0 30 24">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-read-more"></use>
+                            </svg>
+                        </span>
                     </div>
                 </a>
                 <?php endforeach; ?>

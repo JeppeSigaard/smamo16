@@ -8,4 +8,5 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php get_template_part('template-parts/header/svg-defs'); ?>
 <?php get_template_part('template-parts/header/site-header'); ?>

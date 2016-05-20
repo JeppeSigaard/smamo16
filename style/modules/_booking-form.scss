@@ -2,6 +2,21 @@
 .show-form .booking-form{
     display: block;
 }
+@media only screen and(min-width:768px){
+    .home .booking-form:after,
+    .archive.tax-cases .booking-form:after{
+        top: 0;
+    }
+    
+}
+
+.booking-form.loading .form-slide-sending{
+    height:100vw;
+    max-height: 100%;
+    @extend %data-bg-loading-black;
+}
+
+
 .booking-form{
     display: none;
     position: fixed;
@@ -12,7 +27,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba($color-light,.98);
+    background: rgba($color-light,.99);
     @media only screen and(min-width:960px){
         font-size: 120%;      
     }
@@ -41,30 +56,45 @@
         }
     }
     
-    .form-progress{
+    &:after{
+        display: block;
+        content: '';
         width: 0;
         position:fixed;
-        height: 10px;
-        top: 0;
+        height: 5px;
+        top: 60px;
         left: 0;
         background-color: $color-dark-green;
         transition: width 500ms, height 500ms;
-        
     }
-    .form-progress[data-progress="0"]{
+    
+    &[data-progress="0"]:after{
             width: 33% ;
         }
     
-    .form-progress[data-progress="1"]{
+    &[data-progress="1"]:after{
             width: 66% ;
         }
-    .form-progress[data-progress="2"]{
+    &[data-progress="2"]:after{
         width: 100% ;
     }
     
-    .form-progress[data-progress="3"]{
+    &[data-progress="3"]:after{
         width: 100% ;
         height:0;
+    }
+    
+    &[data-progress="2"]{
+        
+        .form-control .send{display:block;}
+        .form-control .right{display:none;}
+        
+    }
+    
+    &[data-progress="3"]{
+        .form-control{
+            display: none;
+        }
     }
     
     .form-control{
@@ -73,7 +103,7 @@
         display: block;
         position: absolute;
         height: 100%;
-        opacity: .3;
+        opacity: .5;
         transition: opacity 120ms, transform 120ms;
         &:hover{
             opacity:.8;
@@ -94,10 +124,11 @@
         
         svg{
             @include center(true,true);
-            border: 3px solid $color-dark-green;
+            //border: 2px solid $color-dark-green;
             fill: $color-dark-green;
             //border-radius: 100%;
             width: calc(100% - 20px);
+            //max-width: 250px;
             @media only screen and(min-width:960px){
                 
                  width: calc(100% - 40px);
@@ -113,7 +144,11 @@
                  width: calc(100% - 150px);
             }
             
-            background: rgba($color-green,.05);
+            //background: rgba($color-green,.05);
+            
+            &.send{
+                display: none;
+            }
         }
         
         &.form-control-left{
@@ -126,4 +161,17 @@
             right: 0;
         }
     }
+}
+
+.send-animation-container{
+	position:absolute;
+	fill: #477;
+	top: 50%;
+	left: 50%;
+	transform-origin: right bottom;
+	transform: translate(-50%,-50%);
+	width: 0px;
+	&.animate{
+		animation: flyaway 1 1800ms;
+	}
 }

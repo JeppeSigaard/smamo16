@@ -25,8 +25,7 @@ get_functions_part(array(
 // Ajax
 get_functions_part(array(
     'json.post',
-    'puzzle-form',
-    
+    'booking-form',
 ),'ajax');
 
 // post types

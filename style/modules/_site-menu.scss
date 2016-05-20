@@ -5,7 +5,9 @@
     bottom:0;
     right:0;
     left:0;
-    background: rgba($color-light,.8);
+    //background: rgba($color-light,.8);
+    background: rgba($color-dark,.95);
+    color: white;
     z-index:9;
 }
 
@@ -72,10 +74,13 @@ body.home .site-menu{
     ul{
         padding: 10px 0px 20px;
         
-        li{
-            line-height: $base-line-height;
-            margin-bottom: 10px;
-        }
+        
+    }
+    
+    li{
+        line-height: $base-line-height;
+        margin-bottom: 10px;
+        padding-left: 5px;
     }
     
 }
@@ -87,14 +92,16 @@ body.home .site-menu{
     font-size: 120%;
 }
 
-.team-list-item{
+.menu-list .team-list-item{
     margin-bottom: 20px;
+    padding-left: 0;
     clear: both;
     overflow: auto;
+    font-size: 90%;
     
     img{
         float: left;
-        width:80px;
+        width:70px;
         margin-right: 10px;
     }
     

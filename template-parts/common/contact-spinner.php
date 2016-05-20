@@ -66,9 +66,21 @@ shuffle($spinner_items);
             <?php endforeach; ?>
         </div>
         <div class="face-spinner-controls">
-            <a href="#" class="spinner-btn spin-top"><?php get_svg('bevel'); ?></a>
-            <a href="#" class="spinner-btn spin-middle"><?php get_svg('bevel'); ?></a>
-            <a href="#" class="spinner-btn spin-bottom"><?php get_svg('bevel'); ?></a>
+            <a href="#" class="spinner-btn spin-top">
+                <svg viewBox="0 0 400 300">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bevel"></use>
+                </svg>
+            </a>
+            <a href="#" class="spinner-btn spin-middle">
+                <svg viewBox="0 0 400 300">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bevel"></use>
+                </svg>
+            </a>
+            <a href="#" class="spinner-btn spin-bottom">
+                <svg viewBox="0 0 400 300">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bevel"></use>
+                </svg>
+            </a>
         </div>   
     </div>
 </section>
