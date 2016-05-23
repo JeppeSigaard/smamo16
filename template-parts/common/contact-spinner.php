@@ -5,10 +5,12 @@ $team = new WP_Query(array(
 ));
 
 $spinner_items = array();
+$team_icons = array();
 while ( $team->have_posts() ) : $team->the_post();
 
-$images = get_post_meta(get_the_ID(),'spinner_img',false);
-    if (!empty($images)) : foreach ( $images as $img ) :
+    $images = get_post_meta(get_the_ID(),'spinner_img',false);
+    
+if (!empty($images)) : foreach ( $images as $img ) :
 
         $img_url = wp_get_attachment_image_src( $img, 'full' );
 
@@ -20,6 +22,18 @@ $images = get_post_meta(get_the_ID(),'spinner_img',false);
         );
 
     endforeach; endif;
+
+
+    $team_icons[get_the_ID()] = array(
+        'tel' => ( get_post_meta(get_the_ID(),'telefon',true) !== '') ? smamo_tel(get_post_meta(get_the_ID(),'telefon',true)) : false,
+        'email' => ( get_post_meta(get_the_ID(),'email',true) ) ? get_post_meta(get_the_ID(),'email',true) : false,
+        'web' => ( get_post_meta(get_the_ID(),'website',true) ) ? get_post_meta(get_the_ID(),'website',true) : false,
+        'facebook' => ( get_post_meta(get_the_ID(),'facebook',true) ) ? get_post_meta(get_the_ID(),'facebook',true) : false,
+        'twitter' => ( get_post_meta(get_the_ID(),'twitter',true) ) ? get_post_meta(get_the_ID(),'twitter',true) : false,
+        'github' => ( get_post_meta(get_the_ID(),'github',true) ) ? get_post_meta(get_the_ID(),'github',true) : false,
+    );
+
+    
 endwhile; 
 
 wp_reset_postdata();
@@ -42,8 +56,45 @@ shuffle($spinner_items);
     <article <?php post_class('contact-info hidden') ?>>
         <div class="inner">
             <h3 class="info-title"><?php echo esc_attr(get_post_meta(get_the_ID(), 'name', true)) ?></h3>
-            <div class="info-description"><?php the_excerpt(); ?></div>
+            <div class="info-description"><?php echo apply_filters('the_content', get_the_excerpt()); ?></div>
             <div class="info-links">
+                <?php $icons = $team_icons[get_the_ID()]; if ($icons['tel']) : ?>
+                    <a href="<?php echo $icons['tel'] ?>">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-telefon"></use>
+                        </svg>
+                    </a>
+                <?php endif; if ( $icons['email'] ) : ?>
+                    <a href="mailto:<?php echo $icons['email'] ?>">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-email"></use>
+                        </svg>
+                    </a>
+                <?php endif; if ( $icons['web'] ) : ?>
+                    <a href="<?php echo esc_url($icons['web']) ?>" target="_blank">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-web"></use>
+                        </svg>
+                    </a>
+                <?php endif; if ( $icons['facebook'] ) : ?>
+                    <a href="<?php echo esc_url($icons['facebook']) ?>" target="_blank">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+                        </svg>
+                    </a>
+                <?php endif; if ( $icons['twitter'] ) : ?>
+                    <a href="<?php echo esc_url($icons['twitter']) ?>" target="_blank">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+                        </svg>
+                    </a>
+                <?php endif; if ( $icons['github'] ) : ?>
+                    <a href="<?php echo esc_url($icons['github']) ?>" target="_blank">
+                        <svg viewbox="0 0 16 16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </article>

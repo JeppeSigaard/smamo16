@@ -7,6 +7,12 @@ require_once get_template_directory() . '/functions/functions.thesubtitle.php';
 require_once get_template_directory() . '/functions/functions.mailchimp.api.php';
 require_once get_template_directory() . '/functions/functions.slack.send.php';
 
+// Rendér telefonnummer
+function smamo_tel($str){
+    $str = str_replace('+','00',$str);
+    return 'tel:' . esc_attr(preg_replace('/[^0-9]/', '', $str));    
+}
+
 // Hent functions parts 
 get_functions_part(array(
     'scripts',

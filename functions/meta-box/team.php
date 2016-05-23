@@ -43,6 +43,24 @@ $mb[] = array(
             'id'    => "website",
             'type' => 'url',
         ),
+        
+        array(
+            'name'  => __( 'Facebook', 'rwmb' ),
+            'id'    => "facebook",
+            'type' => 'url',
+        ),
+        
+        array(
+            'name'  => __( 'Twitter', 'rwmb' ),
+            'id'    => "twitter",
+            'type' => 'url',
+        ),
+        
+        array(
+            'name'  => __( 'Github', 'rwmb' ),
+            'id'    => "github",
+            'type' => 'url',
+        ),
     ),
 );
 

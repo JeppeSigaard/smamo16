@@ -28,7 +28,7 @@ function smamo_booking_form(){
     }
     
     if(function_exists('slack')) {
-        $text = $navn . ' har lige send en anmodning om et møde!';
+        $text = $navn . ' har lige sendt en anmodning om et møde!';
         $attachments = array(
             array(
                 'pretext' => '',
